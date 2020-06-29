@@ -3,6 +3,7 @@ package com.invivoo.vivwallet.api.domain.action;
 import com.invivoo.vivwallet.api.infrastructure.lynx.LynxConnector;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,10 @@ public class ActionService {
 
     public List<Action> findAll(){
         return actionRepository.findAll();
+    }
+
+    public List<Action> findByAchiever(Long achieverId) {
+        return actionRepository.findByAchiever(achieverId);
     }
 
     public void saveAll(List<Action> actions) {
@@ -49,4 +54,5 @@ public class ActionService {
         action.setAchiever(actionFromLynx.getAchiever());
         action.setCreator(actionFromLynx.getCreator());
     }
+
 }
