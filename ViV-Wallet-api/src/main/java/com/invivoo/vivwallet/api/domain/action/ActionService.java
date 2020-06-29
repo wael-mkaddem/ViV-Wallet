@@ -17,6 +17,14 @@ public class ActionService {
         this.lynxConnector = lynxConnector;
     }
 
+    public List<Action> findAll(){
+        return actionRepository.findAll();
+    }
+
+    public void saveAll(List<Action> actions) {
+        actionRepository.saveAll(actions);
+    }
+
     public List<Action> getActionsOrderedByDateDesc() {
        return actionRepository.findAllOrderByDate();
     }
