@@ -17,6 +17,10 @@ public class ActionService {
         this.lynxConnector = lynxConnector;
     }
 
+    public List<Action> getActionsOrderedByDateDesc() {
+       return actionRepository.findAllOrderByDate();
+    }
+
     public List<Action> updateFromLynx() {
         List<Action> actionsFromLynx = lynxConnector.findActions();
         List<Action> unpaidActions = actionRepository.findAllByPaymentIsNull();
